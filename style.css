@@ -1,0 +1,157 @@
+/*******************************************
+/* Variable Declarations
+/*******************************************/
+
+:root{
+  --yellow: #FFCB03;
+  --light-purple: rgba(82, 44, 135, 0.59);
+  --purple: #532C89;
+  --white:  #ffffff;
+  --black:  #000000;
+  --light-yellow: #ffcc5c;
+  --peach: #ff6f69;
+  --grey: #808580;
+  --green: #88d8b0;
+}
+
+.container {
+  --columns: repeat(10, 1fr);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+
+html, body {
+  height:100%;
+  font-family: 'Maven Pro', 'Open Sans', sans-serif;
+  /* font-size: 1rem; */
+  color: var(--white);
+  font-weight:normal;
+}
+
+/* Flex Code */
+
+.container-flex > div {
+  padding: 24px;
+  text-align: center;
+  width: 200px;
+  /* flex: 1 1 323px; */
+  flex-grow: 1;
+  flex-shrink: 1;
+  /* flex-basis: 200px; */
+}
+
+.container-flex {
+  /* border: 5px solid #ffcc5c; */
+  display: flex;
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-wrap: wrap;
+}
+
+.container-flex > div:nth-child(1) {
+  background-color: orange;
+}
+
+.container-flex > div:nth-child(2) {
+  background-color: green;
+}
+
+.container-flex > div:nth-child(3) {
+  background-color: red;
+}
+
+.container-flex > div:nth-child(4) {
+  background-color: pink;
+}
+
+.container-flex > div:nth-child(5) {
+  background-color: blue;
+}
+
+.item1 {
+  order: 0;
+}
+
+.item2 {
+  order: 1;
+}
+
+.item3 {
+  order: 2;
+}
+
+.item4 {
+  order: 3;
+}
+
+.item5 {
+  order: 4;
+}
+
+/* Grid Code */
+
+.container > header, menu, .content, footer {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-size: 1em;
+}
+
+.container {
+  height: 100%;
+  display: grid;
+  grid-gap: 3px;
+  grid-template-columns: var(--columns);
+  grid-template-rows: 80px auto auto 60px;
+  grid-template-areas:
+  "h h h h h h h h h h"
+  "m m m m m m m m m m"
+  "c c c c c c c c c c"
+  "f f f f f f f f f f"
+}
+
+header {
+    grid-area: h;
+    background-color: var(--grey);
+}
+
+menu {
+    grid-area: m;
+    background-color: var(--peach);
+}
+
+.content {
+    grid-area: c;
+    background-color: var(--purple);
+}
+
+footer {
+    grid-area: f;
+    background-color: var(--green);
+}
+
+
+/**********************************************
+/* MEDIA QUERIES
+/*********************************************/
+
+@media screen and (max-width: 640px) {
+    .container {
+        grid-template-areas:
+            "m m h h h h h h h h"
+            "m m c c c c c c c c"
+            "m m c c c c c c c c"
+            "m m f f f f f f f f"
+    }
+
+    header {
+      background-color: var(--yellow);
+    }
+ }
